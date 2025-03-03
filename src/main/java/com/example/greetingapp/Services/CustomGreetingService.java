@@ -66,5 +66,13 @@ public class CustomGreetingService {
     public List<GreetingMessage> getAllGreetings() {
         return greetingRepository.findAll();
     }
+    //UC7
+    //Edit a Greeting Message
+    public GreetingMessage updateGreeting(Long id, String newMessage) {
+        GreetingMessage greetingMessage = greetingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Greeting not found with id: " + id));
 
+        greetingMessage.setMessage(newMessage);
+        return greetingRepository.save(greetingMessage);
+    }
 }
