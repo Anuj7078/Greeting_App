@@ -47,22 +47,24 @@ public class CustomGreetingService {
         } else {
             message = "Hello World!";
         }
-
+        //UC4
         // Save the greeting message to the database
         GreetingMessage greetingMessage = new GreetingMessage(message);
         greetingRepository.save(greetingMessage);
 
         return message;
     }
-    //UC4
-    // Get All Greetings
-    public List<GreetingMessage> getAllGreetings() {
-        return greetingRepository.findAll();
-    }
+
     //UC5
     // Get Greeting by ID
     public GreetingMessage getGreetingById(Long id) {
         return greetingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Greeting not found with id: " + id));
     }
+    //UC6
+    // Get All Greetings
+    public List<GreetingMessage> getAllGreetings() {
+        return greetingRepository.findAll();
+    }
+
 }

@@ -56,7 +56,7 @@ public class GreetingController {
         response.put("message", greetingService.getGreeting(user));
         return response;
     }
-    //UC3
+    //UC3 and UC4
     // Custom Greeting with First Name and Last Name
     @PostMapping("/custom2")
     public Map<String, String> getCustomGreeting2(@RequestBody Map<String, String> request) {
@@ -67,16 +67,17 @@ public class GreetingController {
         response.put("message", greetingService.getGreeting(firstName, lastName));
         return response;
     }
-    //UC4
-    // Get All Greetings
-    @GetMapping("/all")
-    public List<GreetingMessage> getAllGreetings() {
-        return greetingService.getAllGreetings();
-    }
     //UC5
     // Get Greeting by ID
     @GetMapping("/{id}")
     public GreetingMessage getGreetingById(@PathVariable Long id) {
         return greetingService.getGreetingById(id);
     }
+    //UC6
+    // Get All Greetings
+    @GetMapping("/all")
+    public List<GreetingMessage> getAllGreetings() {
+        return greetingService.getAllGreetings();
+    }
+
 }
