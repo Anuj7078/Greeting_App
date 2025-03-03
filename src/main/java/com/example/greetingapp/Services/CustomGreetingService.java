@@ -75,4 +75,9 @@ public class CustomGreetingService {
         greetingMessage.setMessage(newMessage);
         return greetingRepository.save(greetingMessage);
     }
+    //UC8
+    //Delete a Greeting Message
+    public void deleteGreeting(Long id) {
+        greetingRepository.deleteById(id);
+    }
 }

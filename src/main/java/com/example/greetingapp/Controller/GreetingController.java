@@ -3,7 +3,6 @@ package com.example.greetingapp.Controller;
 import com.example.greetingapp.Model.GreetingMessage;
 import com.example.greetingapp.Model.User;
 import com.example.greetingapp.Services.CustomGreetingService;
-import com.example.greetingapp.Services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -85,5 +84,14 @@ public class GreetingController {
     public GreetingMessage updateGreeting(@PathVariable Long id, @RequestBody Map<String, String> request) {
         String newMessage = request.get("message");
         return greetingService.updateGreeting(id, newMessage);
+    }
+    //UC8
+    // Delete a Greeting Message
+    @DeleteMapping("/delete/{id}")
+    public Map<String, String> deleteGreeting(@PathVariable Long id) {
+        greetingService.deleteGreeting(id);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Greeting with id " + id + " deleted successfully!");
+        return response;
     }
 }
