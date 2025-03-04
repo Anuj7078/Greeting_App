@@ -1,4 +1,3 @@
-//This is UC9 - Model to stores details
 package com.example.greetingapp.Model;
 
 import jakarta.persistence.*;
