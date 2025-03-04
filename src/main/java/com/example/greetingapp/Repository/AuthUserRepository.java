@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface AuthUserRepository extends JpaRepository<AuthUser, Long> {
     // Method to find user by email
     AuthUser findByEmail(String email);
+    AuthUser findByVerificationToken(String verificationToken);
 }

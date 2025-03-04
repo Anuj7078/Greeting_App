@@ -25,4 +25,10 @@ public class AuthUser {
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String verificationToken;
+
+    @Column(nullable = false)
+    private boolean isVerified = true; // Directly mark as verified
 }

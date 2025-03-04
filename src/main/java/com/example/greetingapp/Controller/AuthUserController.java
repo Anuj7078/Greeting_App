@@ -14,18 +14,23 @@ public class AuthUserController {
 
     @Autowired
     private AuthUserService authUserService;
-    //UC10
+
     // User Registration
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@Valid @RequestBody AuthUserDTO authUserDTO) {
         authUserService.registerUser(authUserDTO);
-        return ResponseEntity.ok("User registered successfully!");
+        return ResponseEntity.ok("User registered successfully! Please check your email for verification.");
     }
 
-    // Store Login Credentials (No verification for now)
+    // Verify User
+    @GetMapping("/verify")
+    public ResponseEntity<String> verifyUser(@RequestParam String token) {
+        return authUserService.verifyUser(token);
+    }
+
+    // User Login
     @PostMapping("/login")
-    public ResponseEntity<String> storeLoginCredentials(@Valid @RequestBody LoginDTO loginDTO) {
-        authUserService.storeLoginCredentials(loginDTO);
-        return ResponseEntity.ok("Login credentials stored successfully!");
+    public ResponseEntity<String> loginUser(@Valid @RequestBody LoginDTO loginDTO) {
+        return authUserService.loginUser(loginDTO);
     }
 }
